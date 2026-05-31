@@ -1,13 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/form.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/styles/common.css">
+    <link rel="stylesheet" href="../assets/styles/form.css">
+    <script src="../assets/scripts/form.js" defer></script>
+    <title>KBO First - 운명의 팀 찾기</title>
 </head>
 <body>
-    
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="KBO First 홈">
+            <span class="brand-mark">K</span>
+            <span class="brand-name">KBO First</span>
+            <span class="brand-year">2026</span>
+        </a>
+
+        <nav class="main-nav" aria-label="주요 메뉴">
+            <a href="../index.html">Intro</a>
+            <a href="./team.html">Team</a>
+            <a class="is-active" href="./form.html">Find Your Team</a>
+            <a href="./game.html">Game</a>
+        </nav>
+
+        <a class="header-cta" href="#quiz">테스트 시작 →</a>
+        <button class="menu-button" type="button" aria-label="메뉴 열기">☰</button>
+    </header>
+
+    <main class="form-page" id="quiz">
+        <section class="quiz-section" aria-labelledby="quiz-title">
+            <div class="section-heading">
+                <p class="eyebrow">― 10 QUESTIONS ―</p>
+                <h1 id="quiz-title">나에게 맞는 <span>운명의 팀</span>은?</h1>
+                <p>간단한 O/X 질문으로 당신의 응원 성향을 찾아드립니다</p>
+            </div>
+
+            <article class="quiz-panel" id="quizPanel">
+                <div class="progress-head">
+                    <span>PROGRESS</span>
+                    <strong><span id="currentNumber">1</span><small>/10</small></strong>
+                </div>
+
+                <div class="progress-track" aria-hidden="true">
+                    <span class="progress-fill" id="progressFill"></span>
+                </div>
+
+                <div class="step-dots" id="stepDots" aria-hidden="true"></div>
+
+                <p class="progress-caption" id="progressCaption">1번째 질문에 답해 주세요</p>
+
+                <div class="question-card">
+                    <p class="question-count" id="questionCount">QUESTION 01 / 10</p>
+                    <h2 id="questionText">수도권(서울/경기)에 살거나 자주 방문하나요?</h2>
+
+                    <div class="answer-grid" role="group" aria-label="답변 선택">
+                        <button class="answer-button" type="button" data-answer="yes">
+                            <span>O</span>
+                            <strong>예</strong>
+                        </button>
+                        <button class="answer-button" type="button" data-answer="no">
+                            <span>X</span>
+                            <strong>아니오</strong>
+                        </button>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button class="ghost-button" type="button" id="prevButton">← 이전</button>
+                        <button class="primary-button" type="button" id="nextButton">다음 →</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="result-section is-hidden" id="resultSection" aria-live="polite">
+            <article class="result-card" id="resultCard">
+                <div class="result-hero">
+                    <p>YOUR DESTINY TEAM</p>
+                    <div class="emblem-wrap">
+                        <img id="resultEmblem" src="../assets/emblem/lg_emblem.svg" alt="">
+                    </div>
+                    <h2 id="resultTitle">LG 트윈스가 당신의 팀!</h2>
+                    <strong id="resultType">"세련된 도시형 팬"</strong>
+                    <div class="match-box">
+                        <span>매치율</span>
+                        <b id="matchPercent">91%</b>
+                    </div>
+                </div>
+
+                <div class="result-body">
+                    <h3>당신의 응원 성향</h3>
+                    <p id="resultDescription"></p>
+                    <div class="result-actions">
+                        <button class="primary-button outline" type="button" id="shareButton">결과 공유하기</button>
+                        <a class="primary-button ticket-button" id="ticketLink" href="https://www.koreabaseball.com/" target="_blank" rel="noreferrer">티켓팅 도전하기 →</a>
+                    </div>
+                    <button class="reset-button" type="button" id="restartButton">다시 테스트하기</button>
+                </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
