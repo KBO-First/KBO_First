@@ -1,13 +1,3 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-
-@font-face {
-  font-family: "Gmarket Sans";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
-  font-weight: 700 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -39,7 +29,7 @@ a {
   justify-content: space-between;
   height: 68px;
   padding: 0 20px 0 12px;
-  background: #003566;
+  background: var(--color-main);
   border-bottom: 0;
 }
 
@@ -55,8 +45,8 @@ a {
   width: 28px;
   height: 28px;
   place-items: center;
-  color: #003566;
-  background: #ffffff;
+  color: var(--color-main);
+  background: var(--color-white);
   border-radius: 50%;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
@@ -65,7 +55,7 @@ a {
 
 .brand-name {
   font-family: var(--font-display);
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 20px;
   line-height: 1;
   font-weight: var(--fw-bold);
@@ -73,7 +63,7 @@ a {
 
 .brand-year {
   padding: 0;
-  color: #ffc300;
+  color: var(--color-sub);
   background: transparent;
   border-radius: 0;
   font-size: 10px;
@@ -99,7 +89,7 @@ a {
 }
 
 .main-nav a.is-active {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .main-nav a.is-active::after {
@@ -129,8 +119,8 @@ a {
   min-width: 116px;
   height: 37px;
   padding: 0 18px;
-  color: #001d3d;
-  background: #ffc300;
+  color: var(--color-main-3);
+  background: var(--color-sub);
   border-radius: var(--r);
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
@@ -154,7 +144,7 @@ a {
 .quiz-section {
   min-height: calc(100vh - 68px);
   padding: 42px 80px 90px;
-  background: #f8f9fa;
+  background: var(--color-bg);
 }
 
 .section-heading {
@@ -165,7 +155,7 @@ a {
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #d62828;
+  color: var(--color-accent);
   font-size: 10px;
   font-weight: var(--fw-bold);
   letter-spacing: 3px;
@@ -173,7 +163,7 @@ a {
 
 .section-heading h1 {
   margin: 0;
-  color: #212529;
+  color: var(--color-text);
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 800;
@@ -181,12 +171,12 @@ a {
 }
 
 .section-heading h1 span {
-  color: #003566;
+  color: var(--color-main);
 }
 
 .section-heading p:last-child {
   margin: 8px 0 0;
-  color: #6c757d;
+  color: var(--color-text-2);
   font-size: 13px;
   font-weight: var(--fw-semibold);
 }
@@ -204,7 +194,7 @@ a {
 }
 
 .progress-head span {
-  color: #868e96;
+  color: var(--color-text-3);
   font-size: 10px;
   font-weight: var(--fw-bold);
   letter-spacing: 3px;
@@ -221,13 +211,13 @@ a {
 
 .progress-head strong span,
 #currentNumber {
-  color: #003566;
+  color: var(--color-main);
   font-size: 22px;
   font-weight: var(--fw-bold);
 }
 
 .progress-head small {
-  color: #868e96;
+  color: var(--color-text-3);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: var(--fw-bold);
@@ -237,7 +227,7 @@ a {
   height: 6px;
   margin-top: 10px;
   overflow: hidden;
-  background: #e9ecef;
+  background: var(--color-active);
   border-radius: var(--r);
 }
 
@@ -257,20 +247,21 @@ a {
   margin: 12px 0 0;
 }
 
-.step-dots span {
+.step-dots li {
   width: 8px;
   height: 8px;
-  background: #dee2e6;
+  list-style: none;
+  background: var(--color-border);
   border-radius: 50%;
 }
 
-.step-dots span.is-active {
-  background: #d62828;
+.step-dots li.is-active {
+  background: var(--color-accent);
 }
 
 .progress-caption {
   margin: 0;
-  color: #868e96;
+  color: var(--color-text-3);
   font-size: 0;
   font-weight: var(--fw-semibold);
 }
@@ -290,7 +281,7 @@ a {
 
 .question-count {
   margin: 0 0 12px;
-  color: #868e96;
+  color: var(--color-text-3);
   font-size: 11px;
   font-weight: var(--fw-bold);
   letter-spacing: 2px;
@@ -311,14 +302,17 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 16px;
+  min-inline-size: 0;
+  padding: 0;
+  border: 0;
 }
 
 .answer-button {
   min-height: 75px;
   padding: 10px;
-  color: #868e96;
-  background: #ffffff;
-  border: 1px solid #ced4da;
+  color: var(--color-text-3);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   border-radius: var(--r);
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
@@ -334,20 +328,29 @@ a {
 .answer-button strong {
   display: block;
   margin-top: 4px;
-  color: #868e96;
+  color: var(--color-text-3);
   font-size: 11px;
 }
 
 .answer-button:hover,
 .answer-button.is-selected {
-  border-color: var(--color-sub);
+  border-color: var(--color-main);
   box-shadow: none;
   transform: none;
 }
 
-.answer-button.is-selected {
-  color: #003566;
-  background: #fff8d7;
+.answer-button[data-answer="yes"]:hover,
+.answer-button[data-answer="yes"].is-selected {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  border-color: var(--color-success);
+}
+
+.answer-button[data-answer="no"]:hover,
+.answer-button[data-answer="no"].is-selected {
+  color: var(--color-accent);
+  background: var(--color-danger-bg);
+  border-color: var(--color-accent);
 }
 
 .quiz-actions {
@@ -377,21 +380,40 @@ a {
   background: var(--color-sub);
 }
 
+.primary-button:hover {
+  background: var(--color-sub-2);
+}
+
+.primary-button.is-result-button {
+  color: var(--color-white);
+  background: var(--color-accent);
+}
+
+.primary-button.is-result-button:hover {
+  background: var(--color-accent-2);
+}
+
 .ghost-button:disabled {
   cursor: not-allowed;
   opacity: 0.45;
 }
 
 .ghost-button {
-  color: #868e96;
-  background: #ffffff;
-  border: 1px solid #e9ecef;
+  color: var(--color-text-3);
+  background: var(--color-white);
+  border: 1px solid var(--color-active);
+}
+
+.ghost-button:not(:disabled):hover {
+  color: var(--color-main);
+  background: var(--color-active);
+  border-color: var(--color-border);
 }
 
 .result-section {
   min-height: calc(100vh - 68px);
   padding: 52px 24px 80px;
-  background: #6f6f6f;
+  background: var(--color-text-3);
 }
 
 .result-section.is-hidden,
@@ -417,16 +439,16 @@ a {
   background:
     radial-gradient(circle at 16% -6%, rgba(255, 255, 255, 0.14) 0 30%, transparent 31%),
     radial-gradient(circle at 88% 88%, rgba(255, 255, 255, 0.1) 0 27%, transparent 28%),
-    linear-gradient(135deg, var(--team-color, #d62828) 0%, var(--team-color-dark, #a9003d) 100%);
+    linear-gradient(135deg, var(--team-color, var(--color-accent)) 0%, var(--team-color-dark, var(--color-main-3)) 100%);
   text-align: center;
 }
 
 .result-card[data-team="kia"] .result-hero {
   background:
-    linear-gradient(151deg, transparent 0 52%, rgba(0, 13, 31, 0.92) 52.4% 100%),
-    linear-gradient(151deg, rgba(214, 40, 40, 0.98) 0 49%, transparent 49.4%),
+    linear-gradient(151deg, transparent 0 52%, rgba(0, 29, 61, 0.92) 52.4% 100%),
+    linear-gradient(151deg, rgba(234, 0, 41, 0.98) 0 49%, transparent 49.4%),
     repeating-linear-gradient(153deg, rgba(255, 255, 255, 0.055) 0 4px, transparent 4px 13px),
-    linear-gradient(135deg, #d62828 0%, #790014 100%);
+    linear-gradient(135deg, var(--color-team-kia) 0%, var(--color-main-3) 100%);
 }
 
 .result-card[data-team="lg"] .result-hero {
@@ -434,7 +456,7 @@ a {
     linear-gradient(62deg, transparent 0 64%, rgba(0, 0, 0, 0.95) 64.4% 100%),
     linear-gradient(118deg, rgba(195, 4, 82, 0.96) 0 21%, transparent 21.4%),
     repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0 2px, transparent 2px 24px),
-    linear-gradient(180deg, #ffffff 0%, #d9d9d9 100%);
+    linear-gradient(180deg, var(--color-white) 0%, var(--color-active) 100%);
 }
 
 .result-card[data-team="lg"] .result-hero::before,
@@ -444,7 +466,7 @@ a {
 
 .result-card[data-team="lg"] .result-hero h2,
 .result-card[data-team="lg"] .result-hero strong,
-.result-card[data-team="lg"] .match-box span {
+.result-card[data-team="lg"] .match-box dt {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
 }
 
@@ -453,22 +475,22 @@ a {
     radial-gradient(circle at 50% 8%, rgba(255, 255, 255, 0.9) 0 2%, transparent 38%),
     repeating-conic-gradient(from -12deg at 50% 2%, rgba(255, 255, 255, 0.25) 0 1.2deg, transparent 1.2deg 4.5deg),
     linear-gradient(155deg, transparent 0 45%, rgba(7, 76, 161, 0.94) 45.4% 58%, transparent 58.4%),
-    linear-gradient(180deg, #d8d8d8 0%, #6f7479 100%);
+    linear-gradient(180deg, var(--color-active) 0%, var(--color-text-3) 100%);
 }
 
 .result-card[data-team="samsung"] .result-hero h2,
 .result-card[data-team="samsung"] .result-hero strong,
-.result-card[data-team="samsung"] .match-box span {
+.result-card[data-team="samsung"] .match-box dt {
   text-shadow: 0 2px 8px rgba(0, 29, 61, 0.62);
 }
 
 .result-card[data-team="lotte"] .result-hero {
   background:
-    linear-gradient(42deg, rgba(192, 0, 35, 0.92) 0 27%, transparent 27.4%),
+    linear-gradient(42deg, rgba(214, 40, 40, 0.92) 0 27%, transparent 27.4%),
     linear-gradient(42deg, transparent 0 38%, rgba(91, 171, 217, 0.92) 38.4% 56%, transparent 56.4%),
     linear-gradient(42deg, transparent 0 72%, rgba(55, 126, 176, 0.72) 72.4% 100%),
     radial-gradient(circle at 82% 15%, rgba(195, 4, 82, 0.28) 0 1.5px, transparent 2px),
-    linear-gradient(180deg, #002b55 0%, #001d3d 100%);
+    linear-gradient(180deg, var(--color-main) 0%, var(--color-main-3) 100%);
   background-size: auto, auto, auto, 18px 18px, auto;
 }
 
@@ -501,7 +523,7 @@ a {
 
 .result-hero p {
   margin: 0;
-  color: #ffc300;
+  color: var(--color-sub);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: var(--fw-bold);
@@ -542,10 +564,11 @@ a {
 }
 
 .match-box {
-  margin-top: 20px;
+  margin: 20px 0 0;
+  padding: 0;
 }
 
-.match-box span {
+.match-box dt {
   display: block;
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-body);
@@ -553,11 +576,12 @@ a {
   font-weight: var(--fw-semibold);
 }
 
-.match-box b {
+.match-box dd {
   display: block;
+  margin: 0;
   margin-top: 0;
   font-family: var(--font-display);
-  color: #ffc300;
+  color: var(--color-sub);
   font-size: 30px;
   line-height: 1.05;
 }
@@ -568,7 +592,7 @@ a {
 
 .result-body h3 {
   margin: 0 0 8px;
-  color: #868e96;
+  color: var(--color-text-3);
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: var(--fw-bold);
@@ -577,7 +601,7 @@ a {
 .result-body p {
   min-height: 78px;
   margin: 0;
-  color: #495057;
+  color: var(--color-text-2);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: var(--fw-regular);
@@ -593,13 +617,21 @@ a {
 
 .primary-button.outline {
   color: var(--color-main);
-  background: #ffffff;
-  border: 1px solid #dee2e6;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.primary-button.outline:hover {
+  background: var(--color-active);
 }
 
 .ticket-button {
-  color: #ffffff;
-  background: #003566;
+  color: var(--color-white);
+  background: var(--color-main);
+}
+
+.ticket-button:hover {
+  background: var(--color-main-2);
 }
 
 .reset-button {
@@ -750,7 +782,7 @@ a {
     font-size: 24px;
   }
 
-  .match-box b {
+  .match-box dd {
     font-size: 30px;
   }
 
@@ -769,59 +801,4 @@ a {
     left: 20px;
     text-align: center;
   }
-}
-
-/* Figma alignment pass: keep the form page inside the agreed palette. */
-.site-header {
-  background: #003566;
-}
-
-.quiz-section {
-  background: #f8f9fa;
-}
-
-.header-cta,
-.primary-button {
-  background: #ffc300;
-}
-
-.section-heading h1,
-.question-card h2,
-.result-body p {
-  color: #212529;
-}
-
-.section-heading h1 span,
-.question-count,
-.result-body h3 {
-  color: #003566;
-}
-
-.progress-head strong span,
-#currentNumber {
-  color: #003566;
-  font-size: 22px;
-}
-
-.progress-head strong small {
-  color: #868e96;
-  font-size: 13px;
-}
-
-.eyebrow,
-.step-dots span.is-active {
-  color: #d62828;
-}
-
-.step-dots span.is-active {
-  background: #d62828;
-}
-
-.answer-button {
-  background: #ffffff;
-}
-
-.answer-button.is-selected {
-  background: #e9ecef;
-  border-color: #003566;
 }

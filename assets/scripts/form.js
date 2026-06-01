@@ -148,10 +148,11 @@ function renderQuestion() {
   });
 
   stepDots.innerHTML = questions
-    .map((_, index) => `<span class="${index === state.currentIndex ? "is-active" : ""}"></span>`)
+    .map((_, index) => `<li class="${index === state.currentIndex ? "is-active" : ""}"></li>`)
     .join("");
 
   prevButton.disabled = state.currentIndex === 0;
+  nextButton.classList.toggle("is-result-button", state.currentIndex === questions.length - 1);
   nextButton.textContent = state.currentIndex === questions.length - 1 ? "결과 확인 →" : "다음 →";
 }
 
