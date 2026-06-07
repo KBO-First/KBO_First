@@ -1,13 +1,879 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/team.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBO First - Team</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+      background-color: #ffffff;
+      color: #212529;
+    }
+
+    /* ── 네비게이션 ── */
+    nav {
+      background-color: #001D3D;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav-logo-text {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .nav-logo-year {
+      color: #FFC300;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 15px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #ffffff; }
+
+    .nav-links a.active {
+      color: #FFC300;
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 2px;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background-color: #FFC300;
+      border-radius: 1px;
+    }
+
+    .nav-cta {
+      background-color: #FFC300;
+      color: #001D3D;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      border-radius: 1px;
+    }
+
+    /* ── 히어로 섹션 ── */
+    .hero {
+      background-color: #ffffff;
+      padding: 32px 40px 0;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-box {
+      background-color: #003566;
+      border-radius: 20px;
+      padding: 52px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 120px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.04);
+      letter-spacing: -4px;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-label {
+      color: #FFC300;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: #FFC300;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .stat-badge {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 11px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 600;
+      min-width: 190px;
+      letter-spacing: 0.3px;
+    }
+
+    .stat-badge .stat-num {
+      color: #FFC300;
+      font-size: 20px;
+      font-weight: 900;
+      min-width: 28px;
+    }
+
+    /* ── 카드 섹션 ── */
+    .cards-section {
+      padding: 40px 40px 56px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* 앞면 카드 그리드 */
+    .cards-grid {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    /* ── 플립 카드 ── */
+    .flip-card {
+      width: 200px;
+      height: 320px;
+      perspective: 1000px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.65s ease;
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* 앞면 */
+    .flip-card-front {
+      background-color: #ffffff;
+      border: 1px solid #e0e4ea;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .front-top {
+      background: linear-gradient(180deg, #003566 0%, #012a52 100%);
+      padding: 18px 16px 28px;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: 175px;
+    }
+
+    .position-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 900;
+      color: #003566;
+      margin-top: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .front-bottom {
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      background-color: #ffffff;
+    }
+
+    .card-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: #001D3D;
+      text-align: center;
+    }
+
+    .card-id {
+      font-size: 11px;
+      color: #adb5bd;
+    }
+
+    .team-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 999px;
+      margin: 2px 0;
+      color: #ffffff;
+    }
+
+    .card-role {
+      font-size: 11px;
+      color: #495057;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .tap-hint {
+      font-size: 9px;
+      color: #ced4da;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 뒷면 */
+    .flip-card-back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      padding: 22px 20px 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-number {
+      position: absolute;
+      right: -8px;
+      bottom: -16px;
+      font-size: 110px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.07);
+      line-height: 1;
+      user-select: none;
+      letter-spacing: -4px;
+    }
+
+    .back-position {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 10px;
+    }
+
+    .back-name {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 3px;
+      letter-spacing: -0.5px;
+    }
+
+    .back-team {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .back-quote {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .back-icons {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .back-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    /* 팀 색상별 뒷면 */
+    .back-lotte  { background-color: #D62828; }
+    .back-lg     { background-color: #C41472; }
+    .back-kiwoom { background-color: #820024; }
+    .back-samsung { background-color: #074CA1; }
+
+    /* 팀 뱃지 색상 */
+    .badge-lotte   { background-color: #D62828; }
+    .badge-lg      { background-color: #C41472; }
+    .badge-kiwoom  { background-color: #820024; }
+    .badge-samsung { background-color: #074CA1; }
+
+    /* ── FLIPPED 버튼 ── */
+    .flip-toggle-wrap {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .flip-toggle-btn {
+      background-color: #002d5a;
+      color: #ffffff;
+      border: none;
+      padding: 13px 32px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: background-color 0.2s;
+      box-shadow: 0 2px 10px rgba(0, 29, 61, 0.25);
+    }
+
+    .flip-toggle-btn:hover {
+      background-color: #001D3D;
+    }
+
+    /* ── 힌트 텍스트 ── */
+    .flip-hint-text {
+      text-align: center;
+      font-size: 12px;
+      color: #adb5bd;
+      margin-top: 8px;
+    }
+
+    /* ── 푸터 ── */
+    footer {
+      background-color: #001D3D;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo-icon {
+      width: 28px;
+      height: 28px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .footer-logo-text {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .footer-logo-year {
+      color: #FFC300;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* ── 카드 등장 애니메이션 ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .flip-card {
+      opacity: 0;
+      animation: fadeUp 0.55s ease forwards;
+    }
+
+    .flip-card:nth-child(1) { animation-delay: 0.05s; }
+    .flip-card:nth-child(2) { animation-delay: 0.12s; }
+    .flip-card:nth-child(3) { animation-delay: 0.19s; }
+    .flip-card:nth-child(4) { animation-delay: 0.26s; }
+    .flip-card:nth-child(5) { animation-delay: 0.33s; }
+
+    /* ── 반응형 (768px 이하 모바일) ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .hero {
+        padding: 20px;
+      }
+
+      .hero-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 28px;
+        gap: 24px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .hero-bg-text {
+        font-size: 72px;
+      }
+
+      .hero-stats {
+        width: 100%;
+      }
+
+      .stat-badge {
+        min-width: unset;
+      }
+
+      .cards-section {
+        padding: 32px 20px;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .flip-card {
+        width: 100%;
+        height: 300px;
+      }
+
+      /* 5번째 카드(강수민) 가운데 정렬 */
+      .flip-card:nth-child(5) {
+        grid-column: 1 / -1;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">⚾</div>
+      <span class="nav-logo-text">KBO First</span>
+      <span class="nav-logo-year">2026</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Intro</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="form.html">Find Your Team</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+    <a href="form.html" class="nav-cta">테스트 시작 →</a>
+    <div class="nav-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-box">
+        <div class="hero-bg-text">LINE-UP</div>
+        <div class="hero-left">
+          <p class="hero-label">LINE-UP · 2026 ROSTER</p>
+          <h1 class="hero-title">
+            우리 팀의<br>
+            <span>타순을 소개합니다</span>
+          </h1>
+          <p class="hero-desc">5명, 5가지 포지션. 카드를 탭하면 우리 팀원의 직관 꿀팁이 나옵니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-badge">
+            <span class="stat-num">5</span>
+            <span>· TEAM MEMBERS</span>
+          </div>
+          <div class="stat-badge">
+            <span class="stat-num">4</span>
+            <span>· KBO TEAMS</span>
+          </div>
+          <div class="stat-badge">
+            <span class="stat-num">∞</span>
+            <span>· BASEBALL LOVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카드 -->
+  <section class="cards-section">
+
+    <!-- 앞면 카드 5장 -->
+    <div class="cards-grid" id="cardsGrid">
+
+      <!-- 01 박중현 · PITCHER -->
+      <div class="flip-card" id="card1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">PITCHER</span>
+              <div class="avatar"><img src="images/박중현.PNG" alt="박중현"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">박중현</p>
+              <p class="card-id">20242842</p>
+              <span class="team-badge badge-lotte">롯데 자이언츠</span>
+              <p class="card-role">폼 페이지 제작 · 발표</p>
+              <p class="tap-hint">↻ TAP TO FLIP</p>
+            </div>
+          </div>
+          <div class="flip-card-back back-lotte">
+            <div class="back-number">01</div>
+            <p class="back-position">— PITCHER —</p>
+            <p class="back-name">박중현</p>
+            <p class="back-team">롯데 자이언츠 팬</p>
+            <p class="back-quote">"티켓팅 성공의 비결은 손가락 예열. 발표도 직관도 준비가 전부입니다."</p>
+            <div class="back-icons">
+              <div class="back-icon">↩</div>
+              <div class="back-icon">▶</div>
+              <div class="back-icon">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 이지훈 · LEADOFF -->
+      <div class="flip-card" id="card2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">LEADOFF</span>
+              <div class="avatar"><img src="images/이지훈.PNG" alt="이지훈"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">이지훈</p>
+              <p class="card-id">20233476</p>
+              <span class="team-badge badge-lotte">롯데 자이언츠</span>
+              <p class="card-role">메인 페이지 제작</p>
+              <p class="tap-hint">↻ TAP TO FLIP</p>
+            </div>
+          </div>
+          <div class="flip-card-back back-lotte">
+            <div class="back-number">02</div>
+            <p class="back-position">— LEADOFF —</p>
+            <p class="back-name">이지훈</p>
+            <p class="back-team">롯데 자이언츠 팬</p>
+            <p class="back-quote">"1번 타자처럼 첫인상이 전부. 메인 페이지에 모든 걸 쏟았습니다."</p>
+            <div class="back-icons">
+              <div class="back-icon">↩</div>
+              <div class="back-icon">▶</div>
+              <div class="back-icon">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 정예원 · COMMENTATOR -->
+      <div class="flip-card" id="card3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">COMMENTATOR</span>
+              <div class="avatar"><img src="images/정예원.PNG" alt="정예원"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">정예원</p>
+              <p class="card-id">20242881</p>
+              <span class="team-badge badge-lg">LG 트윈스</span>
+              <p class="card-role">팀원 소개 페이지 제작</p>
+              <p class="tap-hint">↻ TAP TO FLIP</p>
+            </div>
+          </div>
+          <div class="flip-card-back back-lg">
+            <div class="back-number">03</div>
+            <p class="back-position">— COMMENTATOR —</p>
+            <p class="back-name">정예원</p>
+            <p class="back-team">LG 트윈스 팬</p>
+            <p class="back-quote">"중계진처럼 팀원 한 명 한 명을 생생하게 소개하는 게 목표였어요."</p>
+            <div class="back-icons">
+              <div class="back-icon">↩</div>
+              <div class="back-icon">▶</div>
+              <div class="back-icon">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 김하람 · CATCHER -->
+      <div class="flip-card" id="card4">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">CATCHER</span>
+              <div class="avatar"><img src="images/김하람.PNG" alt="김하람"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">김하람</p>
+              <p class="card-id">20223065</p>
+              <span class="team-badge badge-kiwoom">키움 히어로즈</span>
+              <p class="card-role">게임 페이지 제작</p>
+              <p class="tap-hint">↻ TAP TO FLIP</p>
+            </div>
+          </div>
+          <div class="flip-card-back back-kiwoom">
+            <div class="back-number">04</div>
+            <p class="back-position">— CATCHER —</p>
+            <p class="back-name">김하람</p>
+            <p class="back-team">키움 히어로즈 팬</p>
+            <p class="back-quote">"포수처럼 눈에 안 띄어도 게임 전체를 붙잡는 역할을 했습니다."</p>
+            <div class="back-icons">
+              <div class="back-icon">↩</div>
+              <div class="back-icon">▶</div>
+              <div class="back-icon">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 강수민 · MANAGER -->
+      <div class="flip-card" id="card5">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">MANAGER</span>
+              <div class="avatar">강</div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">강수민</p>
+              <p class="card-id">20212953</p>
+              <span class="team-badge badge-samsung">삼성 라이온즈</span>
+              <p class="card-role">디자인 · PPT · 세팅</p>
+              <p class="tap-hint">↻ TAP TO FLIP</p>
+            </div>
+          </div>
+          <div class="flip-card-back back-samsung">
+            <div class="back-number">05</div>
+            <p class="back-position">— MANAGER —</p>
+            <p class="back-name">강수민</p>
+            <p class="back-team">삼성 라이온즈 팬</p>
+            <p class="back-quote">"감독은 뒤에서 전체를 봅니다. 팀원들이 빛날 수 있게 세팅하는 게 제 역할."</p>
+            <div class="back-icons">
+              <div class="back-icon">↩</div>
+              <div class="back-icon">▶</div>
+              <div class="back-icon">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 전체 뒤집기 버튼 -->
+    <div class="flip-toggle-wrap">
+      <button class="flip-toggle-btn" id="flipAllBtn">↻ FLIPPED — 뒷면</button>
+    </div>
+
+    <p class="flip-hint-text">↓ 카드를 클릭하면 뒷면이 보입니다 · 모바일은 탭</p>
+
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-logo-icon">⚾</div>
+      <span class="footer-logo-text">KBO First</span>
+      <span class="footer-logo-year">2026</span>
+    </div>
+    <p class="footer-copy">
+      © 웹클컴 3조 · KBO 야구 입문 가이드<br>
+      당신의 첫 직관, 우리가 함께합니다 ⚾
+    </p>
+  </footer>
+
+  <script>
+    // 카드 개별 클릭 flip
+    var cards = document.querySelectorAll('.flip-card');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', function () {
+        this.classList.toggle('flipped');
+      });
+    }
+
+    // 전체 뒤집기 버튼
+    var flipAllBtn = document.getElementById('flipAllBtn');
+    var allFlipped = false;
+
+    flipAllBtn.addEventListener('click', function () {
+      allFlipped = !allFlipped;
+      for (var i = 0; i < cards.length; i++) {
+        if (allFlipped) {
+          cards[i].classList.add('flipped');
+        } else {
+          cards[i].classList.remove('flipped');
+        }
+      }
+      flipAllBtn.textContent = allFlipped ? '↩ BACK — 앞면' : '↻ FLIPPED — 뒷면';
+    });
+  </script>
+
 </body>
 </html>
