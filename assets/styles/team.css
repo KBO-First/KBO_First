@@ -439,6 +439,11 @@ nav {
   height: 14px;
 }
 
+.back-icon.playing {
+  background-color: var(--color-sub);
+  border-color: var(--color-sub);
+}
+
 /* 팀 색상별 뒷면 */
 .back-lotte   { background-color: var(--color-team-lotte); }
 .back-lg      { background-color: var(--color-team-lg); }
