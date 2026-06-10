@@ -442,13 +442,13 @@ nav {
 /* 팀 색상별 뒷면 */
 .back-lotte   { background-color: var(--color-team-lotte); }
 .back-lg      { background-color: var(--color-team-lg); }
-.back-kiwoom  { background-color: #820024; }
+.back-kiwoom  { background-color: #570514; }
 .back-samsung { background-color: var(--color-team-sam); }
 
 /* 팀 뱃지 색상 */
 .badge-lotte   { background-color: var(--color-team-lotte); }
 .badge-lg      { background-color: var(--color-team-lg); }
-.badge-kiwoom  { background-color: #820024; }
+.badge-kiwoom  { background-color: #570514; }
 .badge-samsung { background-color: var(--color-team-sam); }
 
 /* ── 전체 뒤집기 버튼 ── */
