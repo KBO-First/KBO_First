@@ -299,7 +299,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: var(--fs-6xl);
   font-weight: 900;
   color: var(--color-main);
   overflow: hidden;
@@ -557,7 +557,7 @@ footer {
 
   .hero-title { font-size: var(--fs-6xl); }
 
-  .hero-bg-text { font-size: 72px; }
+  .hero-bg-text { font-size: var(--fs-13xl); }
 
   .hero-stats { width: 100%; }
 
