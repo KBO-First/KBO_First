@@ -74,7 +74,7 @@ ul {
    GNB (Global Navigation Bar)
    -------------------------------------------------------------------------- */
 .gnb {
-    background-color: var(--color-main-3);
+    background-color: #10538A;
     color: var(--color-white);
     position: sticky;
     top: 0;
@@ -152,6 +152,13 @@ ul {
     font-weight: var(--fw-bold);
     white-space: nowrap;
     flex-shrink: 0;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gnb-action:hover {
+    background-color: var(--color-sub-2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 195, 0, 0.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -299,22 +306,17 @@ ul {
     flex: 1;
     min-width: 180px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    border-bottom: 4px solid var(--color-active);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: 1px solid var(--color-border);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .rank-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-/* Dynamic border bottom based on child emblem */
-.rank-card:has(.emblem-lg) { border-bottom-color: var(--color-team-lg); }
-.rank-card:has(.emblem-sam) { border-bottom-color: var(--color-team-sam); }
-.rank-card:has(.emblem-kia) { border-bottom-color: var(--color-team-kia); }
-.rank-card:has(.emblem-doosan) { border-bottom-color: var(--color-team-dusan); }
-.rank-card:has(.emblem-lotte) { border-bottom-color: var(--color-team-lotte); }
+/* Border bottom removed — all cards are white/uniform */
 
 .rank-num {
     font-family: var(--font-display);
@@ -331,14 +333,17 @@ ul {
 img.team-emblem {
     width: 120px;
     height: 120px;
+    max-width: 100%;
     margin: 0 auto 16px;
     object-fit: contain;
     display: block;
 }
 
+/* Lotte emblem — larger to match original design */
 img.team-emblem.emblem-lotte {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: auto;
+    max-width: 100%;
 }
 
 /* Emblem fallback — div (두산 등 SVG 없는 경우) */
@@ -406,6 +411,13 @@ div.team-emblem {
     height: 200px;
     position: relative;
     overflow: hidden;
+}
+
+.trend-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .bg-navy { background-color: var(--color-main); }
@@ -797,46 +809,47 @@ div.team-emblem {
         font-size: var(--fs-4xl);
     }
 
-    /* Ranking - 2 column grid like mobile mockup */
+    /* Ranking - 2 column grid, portrait cards for mobile */
     .ranking-cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+        overflow-x: visible;
     }
     .rank-card {
         min-width: unset;
-        padding: 20px 12px;
+        padding: 24px 12px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
     }
     .rank-num {
-        font-size: var(--fs-6xl);
-        margin-bottom: 8px;
+        font-size: var(--fs-5xl);
+        margin-bottom: 12px;
     }
     img.team-emblem {
-        width: 72px;
-        height: 72px;
-        margin: 0 auto 8px;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 12px;
     }
     img.team-emblem.emblem-lotte {
-        width: 84px;
-        height: 84px;
+        width: 80px;
+        height: 80px;
     }
     div.team-emblem {
-        width: 72px;
-        height: 72px;
-        margin: 0 auto 8px;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 12px;
         font-size: var(--fs-lg);
     }
     .team-name {
-        font-size: var(--fs-base);
+        font-size: var(--fs-md);
+        margin-bottom: 6px;
     }
     .trend-score {
-        font-size: var(--fs-xs);
-    }
-    /* 5th card spans full width */
-    .rank-card:nth-child(5) {
-        grid-column: 1 / -1;
-        max-width: 50%;
-        margin: 0 auto;
+        font-size: var(--fs-sm);
     }
 
     /* Trends */
@@ -920,21 +933,33 @@ div.team-emblem {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
+    .rank-card {
+        padding: 18px 8px 14px;
+        min-height: 160px;
+    }
     .rank-num {
-        font-size: var(--fs-4xl);
+        font-size: var(--fs-3xl);
+        margin-bottom: 8px;
     }
     img.team-emblem {
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 8px;
     }
     img.team-emblem.emblem-lotte {
-        width: 64px;
-        height: 64px;
+        width: 60px;
+        height: 60px;
     }
     div.team-emblem {
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
         font-size: var(--fs-base);
+    }
+    .team-name {
+        font-size: var(--fs-sm);
+    }
+    .trend-score {
+        font-size: var(--fs-xs);
     }
     .section-header h3 {
         font-size: var(--fs-2xl);
