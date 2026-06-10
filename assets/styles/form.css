@@ -620,9 +620,14 @@ a {
 
 .result-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 138px);
   gap: 8px;
+  justify-content: center;
   margin-top: 19px;
+}
+
+.result-actions .primary-button {
+  width: 138px;
 }
 
 .primary-button.outline {
@@ -756,6 +761,10 @@ a {
   .quiz-actions,
   .result-actions {
     gap: 10px;
+  }
+
+  .result-actions {
+    grid-template-columns: repeat(2, 138px);
   }
 
   .primary-button,
