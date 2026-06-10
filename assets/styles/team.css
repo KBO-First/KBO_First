@@ -268,7 +268,7 @@ nav {
 }
 
 .front-top {
-  background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-2) 100%);
+  background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-2) 62%, rgba(255, 255, 255, 0.95) 100%);
   padding: 18px 16px 0;
   position: relative;
   display: flex;
