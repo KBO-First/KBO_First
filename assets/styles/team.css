@@ -269,12 +269,13 @@ nav {
 
 .front-top {
   background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-2) 100%);
-  padding: 18px 16px 28px;
+  padding: 18px 16px 0;
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  height: 175px;
+  height: 155px;
+  overflow: visible;
 }
 
 .position-tag {
@@ -287,13 +288,12 @@ nav {
   font-weight: var(--fw-bold);
   letter-spacing: 1.5px;
   padding: 4px 10px;
-  border-radius: var(--r-pill);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-sm);
 }
 
 .avatar {
-  width: 84px;
-  height: 84px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background-color: var(--color-white);
   display: flex;
@@ -302,10 +302,12 @@ nav {
   font-size: 32px;
   font-weight: 900;
   color: var(--color-main);
-  margin-top: 20px;
   overflow: hidden;
   flex-shrink: 0;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .avatar img {
@@ -316,12 +318,13 @@ nav {
 }
 
 .front-bottom {
-  padding: 16px 16px 14px;
+  padding: 52px 16px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
   background-color: var(--color-white);
+  flex: 1;
 }
 
 .card-name {
@@ -353,10 +356,9 @@ nav {
 }
 
 .tap-hint {
-  font-size: var(--fs-xs);
-  color: #ced4da;
-  margin-top: 4px;
-  letter-spacing: 0.5px;
+  margin-top: 6px;
+  display: block;
+  height: 9px;
 }
 
 /* 뒷면 */
@@ -386,12 +388,12 @@ nav {
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 2.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-sub);
   margin-bottom: 10px;
 }
 
 .back-name {
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-5xl);
   font-weight: 900;
   color: var(--color-white);
   margin-bottom: 3px;
@@ -400,7 +402,7 @@ nav {
 
 .back-team {
   font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-sub);
   margin-bottom: 14px;
   font-weight: var(--fw-semibold);
 }
@@ -410,6 +412,9 @@ nav {
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.75;
   flex: 1;
+  border: 1px dashed var(--color-sub);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
 }
 
 .back-icons {
@@ -422,7 +427,8 @@ nav {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.18);
+  background-color: transparent;
+  border: 1.5px solid var(--color-sub);
   display: flex;
   align-items: center;
   justify-content: center;
