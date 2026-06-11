@@ -3,31 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles/common.css">
+    <link rel="stylesheet" href="../assets/styles/components.css">
     <link rel="stylesheet" href="../assets/styles/game.css">
     <title>KBO First — 티켓팅 시뮬레이터</title>
 </head>
 <body>
-    <header class="site-header">
-        <a class="brand" href="./main.html">
-            <span class="brand-mark">K</span>
-            <span class="brand-name">KBO First</span>
-            <span class="brand-year">2026</span>
-        </a>
-
-        <nav class="main-nav">
-            <a href="./main.html">Intro</a>
-            <a href="./team.html">Team</a>
-            <a href="./form.html">Find Your Team</a>
-            <a class="is-active" href="./game.html">Game</a>
-        </nav>
-
-        <a class="header-cta" href="./form.html#quiz">테스트 시작 →</a>
-        <button class="menu-button" type="button">☰</button>
-    </header>
-
+    <!-- GNB -->
+    <div id="gnb-wrap"></div>
 
     <main class="game-page">
         <section class="game-title">
@@ -152,7 +135,10 @@
     </main>
 
 
+    <!-- Footer -->
+    <div id="footer-wrap"></div>
 
+    <script src="../assets/scripts/components.js"></script>
     <script src="../assets/scripts/game.js"></script>
 </body>
 </html>

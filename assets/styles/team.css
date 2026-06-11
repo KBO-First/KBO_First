@@ -1,5 +1,4 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -8,108 +7,6 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-white);
   color: var(--color-text);
-}
-
-/* ── 네비게이션 ── */
-nav {
-  background-color: var(--color-main-3);
-  padding: 0 40px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.nav-logo-icon {
-  width: 32px;
-  height: 32px;
-  background-color: var(--color-white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-md);
-}
-
-.nav-logo-text {
-  color: var(--color-white);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-bold);
-}
-
-.nav-logo-year {
-  color: var(--color-sub);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-}
-
-.nav-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: var(--fs-md);
-  padding: 8px 16px;
-  border-radius: var(--r-sm);
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--color-white); }
-
-.nav-links a.active {
-  color: var(--color-sub);
-  position: relative;
-}
-
-.nav-links a.active::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 2px;
-  left: 16px;
-  right: 16px;
-  height: 2px;
-  background-color: var(--color-sub);
-  border-radius: 1px;
-}
-
-.nav-cta {
-  background-color: var(--color-sub);
-  color: var(--color-main-3);
-  border: none;
-  padding: 10px 20px;
-  border-radius: var(--r);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-bold);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.nav-hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-white);
-  border-radius: 1px;
 }
 
 /* ── 히어로 섹션 ── */
@@ -421,6 +318,7 @@ nav {
   display: flex;
   gap: 8px;
   margin-top: 16px;
+  z-index: 10;
 }
 
 .back-icon {
@@ -447,13 +345,13 @@ nav {
 /* 팀 색상별 뒷면 */
 .back-lotte   { background-color: var(--color-team-lotte); }
 .back-lg      { background-color: var(--color-team-lg); }
-.back-kiwoom  { background-color: #570514; }
+.back-kiwoom  { background-color: var(--color-team-kiwoom); }
 .back-samsung { background-color: var(--color-team-sam); }
 
 /* 팀 뱃지 색상 */
 .badge-lotte   { background-color: var(--color-team-lotte); }
 .badge-lg      { background-color: var(--color-team-lg); }
-.badge-kiwoom  { background-color: #570514; }
+.badge-kiwoom  { background-color: var(--color-team-kiwoom); }
 .badge-samsung { background-color: var(--color-team-sam); }
 
 /* ── 전체 뒤집기 버튼 ── */
@@ -486,50 +384,6 @@ nav {
   margin-top: 8px;
 }
 
-/* ── 푸터 ── */
-footer {
-  background-color: var(--color-main-3);
-  padding: 40px;
-  text-align: center;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.footer-logo-icon {
-  width: 28px;
-  height: 28px;
-  background-color: var(--color-white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-base);
-}
-
-.footer-logo-text {
-  color: var(--color-white);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-bold);
-}
-
-.footer-logo-year {
-  color: var(--color-sub);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-}
-
-.footer-copy {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: var(--fs-sm);
-  line-height: 1.8;
-}
-
 /* ── 카드 등장 애니메이션 ── */
 @keyframes fadeUp {
   from {
@@ -544,12 +398,6 @@ footer {
 
 /* ── 반응형 ── */
 @media (max-width: 768px) {
-  nav { padding: 0 20px; }
-
-  .nav-links,
-  .nav-cta { display: none; }
-
-  .nav-hamburger { display: flex; }
 
   .hero { padding: 20px; }
 

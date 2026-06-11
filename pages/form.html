@@ -4,28 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/styles/common.css">
+    <link rel="stylesheet" href="../assets/styles/components.css">
     <link rel="stylesheet" href="../assets/styles/form.css">
-    <script src="../assets/scripts/form.js" defer></script>
     <title>KBO First - 운명의 팀 찾기</title>
 </head>
 <body>
-    <header class="site-header">
-        <a class="brand" href="../index.html" aria-label="KBO First 홈">
-            <span class="brand-mark">K</span>
-            <span class="brand-name">KBO First</span>
-            <span class="brand-year">2026</span>
-        </a>
-
-        <nav class="main-nav" aria-label="주요 메뉴">
-            <a href="../index.html">Intro</a>
-            <a href="./team.html">Team</a>
-            <a class="is-active" href="./form.html">Find Your Team</a>
-            <a href="./game.html">Game</a>
-        </nav>
-
-        <a class="header-cta" href="#quiz">테스트 시작 →</a>
-        <button class="menu-button" type="button" aria-label="메뉴 열기">☰</button>
-    </header>
+    <!-- GNB -->
+    <div id="gnb-wrap"></div>
 
     <main class="form-page" id="quiz">
         <section class="quiz-section" aria-labelledby="quiz-title">
@@ -99,5 +84,9 @@
             </article>
         </section>
     </main>
+    <div id="footer-wrap"></div>
+    
+    <script src="../assets/scripts/components.js"></script>
+    <script src="../assets/scripts/form.js"></script>
 </body>
 </html>
