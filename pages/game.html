@@ -1,13 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/game.css">
-    <title>Document</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles/common.css">
+    <link rel="stylesheet" href="../assets/styles/game.css">
+    <title>KBO First — 티켓팅 시뮬레이터</title>
 </head>
 <body>
-    
+    <header class="site-header">
+        <a class="brand" href="./main.html">
+            <span class="brand-mark">K</span>
+            <span class="brand-name">KBO First</span>
+            <span class="brand-year">2026</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="./main.html">Intro</a>
+            <a href="./team.html">Team</a>
+            <a href="./form.html">Find Your Team</a>
+            <a class="is-active" href="./game.html">Game</a>
+        </nav>
+
+        <a class="header-cta" href="./form.html#quiz">테스트 시작 →</a>
+        <button class="menu-button" type="button">☰</button>
+    </header>
+
+
+    <main class="game-page">
+        <section class="game-title">
+            <p id="sh1">SECTION 04 · TICKETING SIMULATOR</p>
+            <h1 id="sh2">티켓팅 <span>시뮬레이터</span></h1>
+            <p id="sh3">깜빡이는 좌석을 찾아 탭! 제한 시간 60초 안에 미션 성공</p>
+        </section>
+
+
+        <section class="game-start" id="start">
+            <section class="start-bg">
+                <p id="spark">⚡</p>
+                <h1 id="st-txt1">티켓팅, 시작할 준비?</h1>
+                <p id="st-txt2">실제 티켓팅처럼 반응속도와 정확도가 중요해요</p>
+                <div>
+                    <p><span class="bg-num">1. </span><span>&nbsp깜빡이는 노란 좌석</span>을 빠르게 탭하세요</p>
+                    <p><span class="bg-num">2. </span>제한 시간 <span>60초</span> · 미션 좌석 <span>10개</span> 클릭하면 성공</p>
+                    <p><span class="bg-num">3. </span>잘못된 좌석 클릭 <span>3회</span>면 GAME OVER</p>
+                </div>
+                <button id="start-btn">⚾ 게임 시작</button>
+            </section>
+        </section>
+
+
+        <section class="game-ready is-hidden" id="ready">
+            <div id="countdown">3</div>
+        </section>
+
+
+        <section class="game-play is-hidden" id="play">
+            <section class="status" id="scrollTarget">
+                <section class="p-time">
+                    <span class="status-txt">REMAIN TIME<br></span>
+                    <span id="time-num">01:00<br></span>
+                    <div id="time-bar"><div id="time-left"></div></div>
+                </section>
+
+                <section class="p-success">
+                    <span class="status-txt">SUCCESS<br></span>
+                    <span id="success-count">0</span><span id="needs10"> / 10</span>
+                </section>
+
+                <section class="p-fail">
+                    <span class="status-txt">MISS<br></span>
+                    <span id="miss-count">0</span>
+                    <div id="miss-circles"><span class="circle" id="circle1"></span><span class="circle" id="circle2"></span><span class="circle" id="circle3"></span></div>
+                </section>
+            </section>
+
+            <section class="mission">
+                <span id="mis">MISSION</span><span id="mission-content">1루 응원석 통로 좌석을 찾아라!</span>
+                <span id="transparent-ball">⚾</span>
+            </section>
+
+            <section class="container">
+                <section id="inner-ct">
+                    <section id="seats">
+                        <button class="seat" id="s1"></button><button class="seat" id="s2"></button><button class="seat" id="s3"></button><button class="seat" id="s4"></button><button class="seat" id="s5"></button><button class="seat" id="s6"></button><button class="seat" id="s7"></button><button class="seat" id="s8"></button><button class="seat" id="s9"></button><button class="seat" id="s10"></button><button class="seat" id="s11"></button><button class="seat" id="s12"></button>
+                        <button class="seat" id="s13"></button><button class="seat" id="s14"></button><button class="seat" id="s15"></button><button class="seat" id="s16"></button><button class="seat" id="s17"></button><button class="seat" id="s18"></button><button class="seat" id="s19"></button><button class="seat" id="s20"></button><button class="seat" id="s21"></button><button class="seat" id="s22"></button><button class="seat" id="s23"></button><button class="seat" id="s24"></button>
+                        <button class="seat" id="s25"></button><button class="seat" id="s26"></button><button class="seat" id="s27"></button><button class="seat" id="s28"></button><button class="seat" id="s29"></button><button class="seat" id="s30"></button><button class="seat" id="s31"></button><button class="seat" id="s32"></button><button class="seat" id="s33"></button><button class="seat" id="s34"></button><button class="seat" id="s35"></button><button class="seat" id="s36"></button>
+                        <button class="seat" id="s37"></button><button class="seat" id="s38"></button><button class="seat" id="s39"></button><button class="seat" id="s40"></button><button class="seat" id="s41"></button><button class="seat" id="s42"></button><button class="seat" id="s43"></button><button class="seat" id="s44"></button><button class="seat" id="s45"></button><button class="seat" id="s46"></button><button class="seat" id="s47"></button><button class="seat" id="s48"></button>
+                        <button class="seat" id="s49"></button><button class="seat" id="s50"></button><button class="seat" id="s51"></button><button class="seat" id="s52"></button><button class="seat" id="s53"></button><button class="seat" id="s54"></button><button class="seat" id="s55"></button><button class="seat" id="s56"></button><button class="seat" id="s57"></button><button class="seat" id="s58"></button><button class="seat" id="s59"></button><button class="seat" id="s60"></button>
+                    </section>
+                </section>
+            </section>
+
+            <section class="color-info">
+                <div class="t-info">
+                    <div id="t-block"></div><span id="t-txt">클릭 가능</span>
+                </div>
+                <div class="s-m-info">
+                    <div id="s-block"></div><span id="s-txt">성공</span>
+                </div>
+                <div class="s-m-info">
+                    <div id="m-block"></div><span id="m-txt">미스</span>
+                </div>
+            </section>
+
+        </section>
+
+
+        <section class="game-result is-hidden" id="result">
+            <section id="clear" class="is-hidden">
+                <span id="clear-txt">CLEAR!</span>
+            </section>
+            <section id="gameover" class="is-hidden">
+                <span id="gameover-txt">GAME OVER</span>
+            </section>
+
+            <section id="result-msg">
+                <div id="clear-msg" class="is-hidden">🎉 <span>성공!</span> 티켓 확보!</div>
+                <div id="gameover-msg" class="is-hidden">⏱ <span>아쉽지만</span> 다시 도전!</div>
+            </section>
+
+
+            <section id="overview">
+                <section id="result-time">
+                    <span id="tNum" class="result-num">00:59</span>
+                    <span id="tTxt" class="result-txt">TIME</span>
+                </section>
+                <section id="result-success">
+                    <span id="sNum" class="result-num">10/10</span>
+                    <span id="sTxt" class="result-txt">SUCCESS</span>
+                </section>
+                <section id="result-miss">
+                    <span id="mNum" class="result-num">3</span>
+                    <span id="mTxt" class="result-txt">MISS</span>
+                </section>
+            </section>
+
+            <section id="retry-or-team">
+                <a href="./game.html">
+                    <button id="retry"><span id="retry-txt">🔄 다시 도전</span></button>
+                </a>
+                <a href="./form.html">
+                    <button id="teamfind"><span id="team-txt">팀 추천받기 →</span></button>
+                </a>
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <script src="../assets/scripts/game.js"></script>
 </body>
 </html>
