@@ -1,13 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/team.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBO First - Team</title>
+  <link rel="stylesheet" href="../assets/styles/common.css">
+  <link rel="stylesheet" href="../assets/styles/team.css">
 </head>
 <body>
-    
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-logo-icon">⚾</div>
+      <span class="nav-logo-text">KBO First</span>
+      <span class="nav-logo-year">2026</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Intro</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="form.html">Find Your Team</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+    <a href="form.html" class="nav-cta">테스트 시작 →</a>
+    <div class="nav-hamburger">
+      <img src="../assets/icons/icon-hamburger.svg" alt="메뉴">
+    </div>
+  </nav>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-box">
+        <div class="hero-bg-text">LINE-UP</div>
+        <div class="hero-left">
+          <p class="hero-label">LINE-UP · 2026 ROSTER</p>
+          <h1 class="hero-title">
+            우리 팀의<br>
+            <span>타순을 소개합니다</span>
+          </h1>
+          <p class="hero-desc">5명, 5가지 포지션. 카드를 탭하면 우리 팀원의 직관 꿀팁이 나옵니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-badge">
+            <span class="stat-num">5</span>
+            <span>· TEAM MEMBERS</span>
+          </div>
+          <div class="stat-badge">
+            <span class="stat-num">4</span>
+            <span>· KBO TEAMS</span>
+          </div>
+          <div class="stat-badge">
+            <span class="stat-num">∞</span>
+            <span>· BASEBALL LOVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카드 -->
+  <section class="cards-section">
+
+    <div class="cards-grid" id="cardsGrid">
+
+      <!-- 01 박중현 · PITCHER -->
+      <div class="flip-card" id="card1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">PITCHER</span>
+              <div class="avatar"><img src="../assets/images/박중현 사진.png" alt="박중현"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">박중현</p>
+              <p class="card-id">20242842</p>
+              <span class="team-badge badge-lotte">롯데 자이언츠</span>
+              <p class="card-role">폼 페이지 제작 · 발표</p>
+              <img class="tap-hint" src="../assets/icons/icon-tap-to-flip.svg" alt="tap to flip">
+            </div>
+          </div>
+          <div class="flip-card-back back-lotte">
+            <audio class="card-audio" src="../mp3/롯데자이언츠.mp3"></audio>
+            <div class="back-number">01</div>
+            <p class="back-position">— PITCHER —</p>
+            <p class="back-name">박중현</p>
+            <p class="back-team">롯데 자이언츠 팬</p>
+            <p class="back-quote">"티켓팅 성공의 비결은 손가락 예열. 발표도 직관도 준비가 전부입니다."</p>
+            <div class="back-icons">
+              <div class="back-icon"><img src="../assets/icons/icon-at.svg" alt="at"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-pause.svg" alt="play"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-heart.svg" alt="heart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 이지훈 · LEADOFF -->
+      <div class="flip-card" id="card2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">LEADOFF</span>
+              <div class="avatar"><img src="../assets/images/이지훈 사진.png" alt="이지훈"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">이지훈</p>
+              <p class="card-id">20233476</p>
+              <span class="team-badge badge-lotte">롯데 자이언츠</span>
+              <p class="card-role">메인 페이지 제작</p>
+              <img class="tap-hint" src="../assets/icons/icon-tap-to-flip.svg" alt="tap to flip">
+            </div>
+          </div>
+          <div class="flip-card-back back-lotte">
+            <audio class="card-audio" src="../mp3/롯데자이언츠.mp3"></audio>
+            <div class="back-number">02</div>
+            <p class="back-position">— LEADOFF —</p>
+            <p class="back-name">이지훈</p>
+            <p class="back-team">롯데 자이언츠 팬</p>
+            <p class="back-quote">"1번 타자처럼 첫인상이 전부. 메인 페이지에 모든 걸 쏟았습니다."</p>
+            <div class="back-icons">
+              <div class="back-icon"><img src="../assets/icons/icon-at.svg" alt="at"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-pause.svg" alt="play"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-heart.svg" alt="heart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 정예원 · COMMENTATOR -->
+      <div class="flip-card" id="card3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">COMMENTATOR</span>
+              <div class="avatar"><img src="../assets/images/정예원 사진.png" alt="정예원"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">정예원</p>
+              <p class="card-id">20242881</p>
+              <span class="team-badge badge-lg">LG 트윈스</span>
+              <p class="card-role">팀원 소개 페이지 제작</p>
+              <img class="tap-hint" src="../assets/icons/icon-tap-to-flip.svg" alt="tap to flip">
+            </div>
+          </div>
+          <div class="flip-card-back back-lg">
+            <audio class="card-audio" src="../mp3/엘지트윈스.mp3"></audio>
+            <div class="back-number">03</div>
+            <p class="back-position">— COMMENTATOR —</p>
+            <p class="back-name">정예원</p>
+            <p class="back-team">LG 트윈스 팬</p>
+            <p class="back-quote">"중계진처럼 팀원 한 명 한 명을 생생하게 소개하는 게 목표였어요."</p>
+            <div class="back-icons">
+              <div class="back-icon"><img src="../assets/icons/icon-at.svg" alt="at"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-pause.svg" alt="play"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-heart.svg" alt="heart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 김하람 · CATCHER -->
+      <div class="flip-card" id="card4">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">CATCHER</span>
+              <div class="avatar"><img src="../assets/images/김하람 사진.png" alt="김하람"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">김하람</p>
+              <p class="card-id">20223065</p>
+              <span class="team-badge badge-kiwoom">키움 히어로즈</span>
+              <p class="card-role">게임 페이지 제작</p>
+              <img class="tap-hint" src="../assets/icons/icon-tap-to-flip.svg" alt="tap to flip">
+            </div>
+          </div>
+          <div class="flip-card-back back-kiwoom">
+            <audio class="card-audio" src="../mp3/키움히어로즈.mp3"></audio>
+            <div class="back-number">04</div>
+            <p class="back-position">— CATCHER —</p>
+            <p class="back-name">김하람</p>
+            <p class="back-team">키움 히어로즈 팬</p>
+            <p class="back-quote">"포수처럼 눈에 안 띄어도 게임 전체를 붙잡는 역할을 했습니다."</p>
+            <div class="back-icons">
+              <div class="back-icon"><img src="../assets/icons/icon-at.svg" alt="at"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-pause.svg" alt="play"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-heart.svg" alt="heart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 강수민 · MANAGER -->
+      <div class="flip-card" id="card5">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-top">
+              <span class="position-tag">MANAGER</span>
+              <div class="avatar"><img src="../assets/images/강수민 사진.png" alt="강수민"></div>
+            </div>
+            <div class="front-bottom">
+              <p class="card-name">강수민</p>
+              <p class="card-id">20212953</p>
+              <span class="team-badge badge-samsung">삼성 라이온즈</span>
+              <p class="card-role">디자인 · PPT · 세팅</p>
+              <img class="tap-hint" src="../assets/icons/icon-tap-to-flip.svg" alt="tap to flip">
+            </div>
+          </div>
+          <div class="flip-card-back back-samsung">
+            <audio class="card-audio" src="../mp3/삼성라이온즈.mp3"></audio>
+            <div class="back-number">05</div>
+            <p class="back-position">— MANAGER —</p>
+            <p class="back-name">강수민</p>
+            <p class="back-team">삼성 라이온즈 팬</p>
+            <p class="back-quote">"감독은 뒤에서 전체를 봅니다. 팀원들이 빛날 수 있게 세팅하는 게 제 역할."</p>
+            <div class="back-icons">
+              <div class="back-icon"><img src="../assets/icons/icon-at.svg" alt="at"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-pause.svg" alt="play"></div>
+              <div class="back-icon"><img src="../assets/icons/icon-heart.svg" alt="heart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 전체 뒤집기 버튼 -->
+    <div class="flip-toggle-wrap">
+      <button class="flip-toggle-btn" id="flipAllBtn">↻ FLIPPED — 뒷면</button>
+    </div>
+
+    <p class="flip-hint-text">↓ 카드를 클릭하면 뒷면이 보입니다 · 모바일은 탭</p>
+
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-logo-icon">⚾</div>
+      <span class="footer-logo-text">KBO First</span>
+      <span class="footer-logo-year">2026</span>
+    </div>
+    <p class="footer-copy">
+      © 웹클컴 3조 · KBO 야구 입문 가이드<br>
+      당신의 첫 직관, 우리가 함께합니다 ⚾
+    </p>
+  </footer>
+
+  <script src="../assets/scripts/team.js"></script>
+
 </body>
 </html>

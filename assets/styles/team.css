@@ -1,0 +1,589 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+/* ── 네비게이션 ── */
+nav {
+  background-color: var(--color-main-3);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
+}
+
+.nav-logo-text {
+  color: var(--color-white);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+}
+
+.nav-logo-year {
+  color: var(--color-sub);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: var(--fs-md);
+  padding: 8px 16px;
+  border-radius: var(--r-sm);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--color-white); }
+
+.nav-links a.active {
+  color: var(--color-sub);
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 2px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: var(--color-sub);
+  border-radius: 1px;
+}
+
+.nav-cta {
+  background-color: var(--color-sub);
+  color: var(--color-main-3);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--r);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: 1px;
+}
+
+/* ── 히어로 섹션 ── */
+.hero {
+  background-color: var(--color-white);
+  padding: 32px 40px 0;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-box {
+  background-color: var(--color-main);
+  border-radius: var(--r-2xl);
+  padding: 52px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.hero-bg-text {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  letter-spacing: -4px;
+  user-select: none;
+  line-height: 1;
+}
+
+.hero-left { flex: 1; }
+
+.hero-label {
+  color: var(--color-sub);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: var(--fs-10xl);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.hero-title span { color: var(--color-sub); }
+
+.hero-desc {
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.stat-badge {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-md);
+  padding: 11px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  min-width: 190px;
+  letter-spacing: 0.3px;
+}
+
+.stat-badge .stat-num {
+  color: var(--color-sub);
+  font-size: var(--fs-xl);
+  font-weight: 900;
+  min-width: 28px;
+}
+
+/* ── 카드 섹션 ── */
+.cards-section {
+  padding: 40px 40px 56px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+/* ── 플립 카드 ── */
+.flip-card {
+  width: 200px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeUp 0.55s ease forwards;
+}
+
+.flip-card:nth-child(1) { animation-delay: 0.05s; }
+.flip-card:nth-child(2) { animation-delay: 0.12s; }
+.flip-card:nth-child(3) { animation-delay: 0.19s; }
+.flip-card:nth-child(4) { animation-delay: 0.26s; }
+.flip-card:nth-child(5) { animation-delay: 0.33s; }
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s ease;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+/* 앞면 */
+.flip-card-front {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.front-top {
+  background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-2) 62%, rgba(255, 255, 255, 0.95) 100%);
+  padding: 18px 16px 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 155px;
+  overflow: visible;
+}
+
+.position-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-6xl);
+  font-weight: 900;
+  color: var(--color-main);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.front-bottom {
+  padding: 52px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--color-white);
+  flex: 1;
+}
+
+.card-name {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-main-3);
+  text-align: center;
+}
+
+.card-id {
+  font-size: var(--fs-xs);
+  color: var(--color-text-3);
+}
+
+.team-badge {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  padding: 3px 12px;
+  border-radius: var(--r-pill);
+  margin: 2px 0;
+  color: var(--color-white);
+}
+
+.card-role {
+  font-size: var(--fs-xs);
+  color: var(--color-text-2);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.tap-hint {
+  margin-top: 6px;
+  display: block;
+  height: 9px;
+}
+
+/* 뒷면 */
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.back-number {
+  position: absolute;
+  right: -8px;
+  bottom: -16px;
+  font-size: 110px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.07);
+  line-height: 1;
+  user-select: none;
+  letter-spacing: -4px;
+}
+
+.back-position {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 2.5px;
+  color: var(--color-sub);
+  margin-bottom: 10px;
+}
+
+.back-name {
+  font-size: var(--fs-5xl);
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 3px;
+  letter-spacing: -0.5px;
+}
+
+.back-team {
+  font-size: var(--fs-sm);
+  color: var(--color-sub);
+  margin-bottom: 14px;
+  font-weight: var(--fw-semibold);
+}
+
+.back-quote {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.75;
+  flex: 1;
+  border: 1px dashed var(--color-sub);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
+}
+
+.back-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.back-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1.5px solid var(--color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon img {
+  width: 14px;
+  height: 14px;
+}
+
+.back-icon.playing {
+  background-color: var(--color-sub);
+  border-color: var(--color-sub);
+}
+
+/* 팀 색상별 뒷면 */
+.back-lotte   { background-color: var(--color-team-lotte); }
+.back-lg      { background-color: var(--color-team-lg); }
+.back-kiwoom  { background-color: #570514; }
+.back-samsung { background-color: var(--color-team-sam); }
+
+/* 팀 뱃지 색상 */
+.badge-lotte   { background-color: var(--color-team-lotte); }
+.badge-lg      { background-color: var(--color-team-lg); }
+.badge-kiwoom  { background-color: #570514; }
+.badge-samsung { background-color: var(--color-team-sam); }
+
+/* ── 전체 뒤집기 버튼 ── */
+.flip-toggle-wrap {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.flip-toggle-btn {
+  background-color: var(--color-main-2);
+  color: var(--color-white);
+  border: none;
+  padding: 13px 32px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 29, 61, 0.25);
+}
+
+.flip-toggle-btn:hover { background-color: var(--color-main-3); }
+
+/* ── 힌트 텍스트 ── */
+.flip-hint-text {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-3);
+  margin-top: 8px;
+}
+
+/* ── 푸터 ── */
+footer {
+  background-color: var(--color-main-3);
+  padding: 40px;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-logo-icon {
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-base);
+}
+
+.footer-logo-text {
+  color: var(--color-white);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+}
+
+.footer-logo-year {
+  color: var(--color-sub);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--fs-sm);
+  line-height: 1.8;
+}
+
+/* ── 카드 등장 애니메이션 ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+
+  .nav-links,
+  .nav-cta { display: none; }
+
+  .nav-hamburger { display: flex; }
+
+  .hero { padding: 20px; }
+
+  .hero-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 28px;
+    gap: 24px;
+  }
+
+  .hero-title { font-size: var(--fs-6xl); }
+
+  .hero-bg-text { font-size: var(--fs-13xl); }
+
+  .hero-stats { width: 100%; }
+
+  .stat-badge { min-width: unset; }
+
+  .cards-section { padding: 32px 20px; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .flip-card {
+    width: 100%;
+    height: 300px;
+  }
+
+  .flip-card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: 50%;
+    margin: 0 auto;
+  }
+}
